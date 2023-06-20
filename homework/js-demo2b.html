@@ -10,7 +10,73 @@
 <script>
     $(document).ready(function() {
        $("#btn").click(function(event){
-         
+            $('table').append('<div id="tableinfo"></div>');
+
+                $('#tableinfo').append('<caption></caption>');
+            
+                $('#tableinfo').append('<thead></thead>');
+                $('#tableinfo').append('<tbody></tbody>');
+                $('#tableinfo').append('<tfoot></tfoot>');
+
+                    $('thead').append('<tr id="showheading"></tr>');
+                    $('tbody').append('<tr id="showbodying"></tr>');
+                    $('tbody').append('<tr id="showbodying2"></tr>');
+                    $('tfoot').append('<tr id="showfooting"></tr>');
+                    
+                        $('#showheading').append('<th></th>');
+                        $('#showheading').append('<th></th>');
+                        $('#showheading').append('<th></th>');
+                        $('#showheading').append('<th></th>');
+                        $('#showheading').append('<th></th>');
+
+                        $('#showbodying').append('<td></td>');
+                        $('#showbodying').append('<td></td>');
+                        $('#showbodying').append('<td></td>');
+                        $('#showbodying').append('<td></td>');
+                        $('#showbodying').append('<td></td>');
+
+                        $('#showbodying2').append('<td></td>');
+                        $('#showbodying2').append('<td></td>');
+                        $('#showbodying2').append('<td></td>');
+                        $('#showbodying2').append('<td></td>');
+                        $('#showbodying2').append('<td></td>');
+
+                        $('#showfooting').append('<td></td>');
+                        $('#showfooting').append('<td></td>');
+                        $('#showfooting').append('<td></td>');
+                        $('#showfooting').append('<td></td>');
+                        $('#showfooting').append('<td></td>');
+
+            $.getJSON('data.json', function(jqdata){
+                $('caption').append(jqdata.title)
+
+                $('#showheading th:first-child').append(jqdata.heading);
+                $('#showheading th:nth-child(2)').append(jqdata.head1);
+                $('#showheading th:nth-child(3)').append(jqdata.head2);
+                $('#showheading th:nth-child(4)').append(jqdata.head3);
+                $('#showheading th:last-child').append(jqdata.head4);
+
+                $('#showbodying td:first-child').append(jqdata.subheadcal);
+                $('#showbodying td:nth-child(2)').append(jqdata.cal1);
+                $('#showbodying td:nth-child(3)').append(jqdata.cal2);
+                $('#showbodying td:nth-child(4)').append(jqdata.cal3);
+                $('#showbodying td:last-child').append(jqdata.cal4);
+
+                $('#showbodying2 td:first-child').append(jqdata.subheadfat);
+                $('#showbodying2 td:nth-child(2)').append(jqdata.fat1);
+                $('#showbodying2 td:nth-child(3)').append(jqdata.fat2);
+                $('#showbodying2 td:nth-child(4)').append(jqdata.fat3);
+                $('#showbodying2 td:last-child').append(jqdata.fat4);
+
+                $('#showfooting td:first-child').append(jqdata.subheadven);
+                $('#showfooting td:nth-child(2)').append(jqdata.ven1);
+                $('#showfooting td:nth-child(3)').append(jqdata.ven2);
+                $('#showfooting td:nth-child(4)').append(jqdata.ven3);
+                $('#showfooting td:last-child').append(jqdata.ven4);
+
+
+                
+            });
        });
     });
  </script>
